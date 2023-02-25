@@ -1,5 +1,8 @@
 <?php
 
+use App\Events\Message;
+use App\Http\Controllers\SendMessageController;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::post('/send-message', function (Request $request) {
+ 
+//     event(new Message($request->username, $request->message));
+// });
+
+Route::post('/send-message',[SendMessageController::class,'send_message']);
